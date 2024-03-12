@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Console Log Test</title>
+  </head>
+  <body>
+    <script>
+      console.log("Hello, this is a console log message!");
+
+      // Testing with variables
+      const num1 = 5;
+      const num2 = 10;
+      console.log(`Sum of ${num1} and ${num2} is ${num1 + num2}`);
+
+      // Testing with an object
+      const sampleObject = { name: "John", age: 30, city: "New York" };
+      console.log("Sample Object:", sampleObject);
+
+      // Simulating an error
+      try {
+        // This will throw an error since the variable is not defined
+        console.log(undefinedVariable);
+      } catch (error) {
+        console.error("Caught an error:", error.message);
+      }
+    </script>
+  </body>
+</html>

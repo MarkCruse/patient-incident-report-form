@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Incident Report</title>
+    <!-- Link to Bootstrap CSS (optional) -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+      }
+
+      @media (max-width: 768px) {
+        /* Adjust styles for screens with a maximum width of 768px */
+        .container {
+          width: 80%; /* Change container width for smaller screens */
+        }
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding-left: 15px; /* Adjust the left padding as needed */
+        padding-right: 15px; /* Adjust the right padding as needed */
+      }
+
+      .form-container {
+        border: 2px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <!-- JavaScript to show/hide Other input fields based on selection -->
+  <script src="script.js"></script>
+
+  <body>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>Patient Incident Form</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <form action="/submitForm" method="post" class="mx-auto form-container">
+        <div class="form-row">
+          <!-- First Row -->
+          <!-- Name Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-3 mb-3">
+            <label for="inputName">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              name="name"
+              placeholder="Enter patient name"
+              maxlength="20"
+              style="width: 225px"
+              required
+            />
+          </div>
+
+          <!-- MR# (Medical Record Number) Field -->
+          <div class="col-md-2 mb-3">
+            <label for="inputMR">MR#</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputMR"
+              name="mr_num"
+              placeholder="Enter MR#"
+              maxlength="10"
+              style="width: 125px"
+              required
+            />
+          </div>
+
+          <!-- DOB (Date of Birth) Field -->
+          <div class="col-md-4 mb-3">
+            <label for="inputDOB">DOB</label>
+            <input
+              type="date"
+              class="form-control"
+              id="inputDOB"
+              name="dob"
+              placeholder="Enter DOB"
+              style="width: 145px"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="form-row">
+          <!-- Main Diagnosis Field -->
+
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-5 mb-3">
+            <label for="inputDiagnosis">Main Diagnosis</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputDiagnosis"
+              name="diagnosis"
+              placeholder="Enter main diagnosis"
+              maxlength="60"
+              style="width: 425px"
+              required
+            />
+          </div>
+
+          <!-- Start of Care Date Field -->
+          <div class="col-md-4 mb-3">
+            <label for="inputCareDate">Start of Care Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="inputCareDate"
+              name="care_date"
+              style="width: 145px"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Third Row -->
+        <div class="form-row">
+          <!-- Date of Incident Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-3 mb-3">
+            <label for="inputIncidentDate">Date of Incident</label>
+            <input
+              type="date"
+              class="form-control"
+              id="inputIncidentDate"
+              name="incident_date"
+              style="width: 145px"
+              required
+            />
+          </div>
+
+          <!-- Time of Incident Field -->
+          <div class="col-md-4 mb-3">
+            <label for="inputIncidentTime">Time of Incident</label>
+            <input
+              type="time"
+              class="form-control"
+              id="inputIncidentTime"
+              name="incident_time"
+              style="width: 145px"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Fourth Row (After Separator) -->
+        <!-- Section Separator -->
+        <div class="row">
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-7">
+            <hr class="my-4" />
+          </div>
+        </div>
+
+        <!-- Fifth Row -->
+        <div class="form-row">
+          <!-- Description of Event Field (Multi-line Input) -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-7 mb-3">
+            <label for="inputEventDescription">Description of Event</label>
+            <textarea
+              class="form-control"
+              id="inputEventDescription"
+              rows="2"
+              name="description"
+              placeholder="Enter description of the event"
+              style="width: 600px"
+              maxlength="130"
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Sixth Row -->
+        <div class="form-row">
+          <!-- Pre-Occurrence Condition Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputPreOccurrence">Pre-Occurrence Condition</label>
+            <select
+              class="form-control"
+              id="inputPreOccurrence"
+              name="pre_occur"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select condition</option>
+              <option value="Alert">Alert</option>
+              <option value="Unconscious">Unconscious</option>
+              <option value="Delirium">Delirium</option>
+              <option value="Dizziness">Dizziness</option>
+              <option value="Weak">Weak</option>
+              <option value="Disoriented">Disoriented</option>
+            </select>
+          </div>
+
+          <!-- Post-Occurrence Condition Field -->
+          <div class="col-md-4 mb-3">
+            <label for="inputPostOccurrence">Post-Occurrence Condition</label>
+            <select
+              class="form-control"
+              id="inputPostOccurrence"
+              name="post_occur"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select condition</option>
+              <option value="Alert">Alert</option>
+              <option value="Unconscious">Unconscious</option>
+              <option value="Delirium">Delirium</option>
+              <option value="Dizziness">Dizziness</option>
+              <option value="Weak">Weak</option>
+              <option value="Disoriented">Disoriented</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Seventh Row -->
+        <div class="form-row">
+          <!-- Fall Observed/Unobserved Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputFallObserved"
+              >Nature of Occurrence<br />Fall Observed/Unobserved</label
+            >
+            <select
+              class="form-control"
+              id="inputFallObserved"
+              name="fall_observed"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select observation</option>
+              <option value="Fall Observed">Fall Observed</option>
+              <option value="Fall Unobserved">Fall Unobserved</option>
+            </select>
+          </div>
+
+          <!-- Fall In Home/Out of Home Field -->
+          <div class="col-md-4 mb-3">
+            <label for="inputFallLocation"
+              >Location<br />Fall In Home/Out of Home</label
+            >
+            <select
+              class="form-control"
+              id="inputFallLocation"
+              name="in_outHome"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select location</option>
+              <option value="Fall In Home">Fall In Home</option>
+              <option value="Fall Out of Home">Fall Out of Home</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Eighth Row -->
+        <div class="form-row">
+          <!-- Cause of Fall Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputCauseOfFall">Cause of Fall</label>
+            <select
+              class="form-control"
+              id="inputCauseOfFall"
+              name="fall_cause"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select cause</option>
+              <option value="Object/Substance on Floor">
+                Object/Substance on Floor
+              </option>
+              <option value="Loss of Balance">Loss of Balance</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Other Cause of Fall (if selected) -->
+          <div
+            class="col-md-4 mb-3"
+            id="otherCauseContainer"
+            style="display: none"
+          >
+            <label for="inputOtherCause">Specify Cause</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputOtherCause"
+              name="other_fall_cause"
+              placeholder="Enter other cause"
+              style="width: 240px"
+              maxlength="20"
+            />
+          </div>
+        </div>
+
+        <!-- Ninth Row -->
+        <div class="form-row">
+          <!-- Fall Location Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputFallLocation">Fall Location</label>
+            <select
+              class="form-control"
+              id="inputFallLocation"
+              name="fall_loc"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select location</option>
+              <option value="Bathroom">Bathroom</option>
+              <option value="Bedroom">Bedroom</option>
+              <option value="ALF">ALF</option>
+              <option value="Kitchen">Kitchen</option>
+              <option value="MD Office">MD Office</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Other Fall Location (if selected) -->
+          <div
+            class="col-md-4 mb-3"
+            id="otherLocationContainer"
+            style="display: none"
+          >
+            <label for="inputOtherLocation">Specify Other Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputOtherLocation"
+              name="other_fall_loc"
+              placeholder="Enter other location"
+              style="width: 240px"
+              maxlength="15"
+            />
+          </div>
+        </div>
+
+        <!-- Tenth Row -->
+        <div class="form-row">
+          <!-- Medication Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputMedication">Medication</label>
+            <select
+              class="form-control"
+              id="inputMedication"
+              name="medication"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>
+                Select medication issue
+              </option>
+              <option value="Wrong Dose">Wrong Dose</option>
+              <option value="Dosage">Dosage</option>
+              <option value="Wrong Time">Wrong Time</option>
+              <option value="Pharmacy Order">Pharmacy Order</option>
+              <option value="Omission">Omission</option>
+              <option value="Drug Reaction">Drug Reaction</option>
+            </select>
+          </div>
+
+          <!-- Drug Reaction (if selected) -->
+          <div
+            class="col-md-4 mb-3"
+            id="drugReactionContainer"
+            style="display: none"
+          >
+            <label for="inputDrugReaction">Specify Drug Reaction</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputDrugReaction"
+              name="drug_react"
+              placeholder="Enter drug causing the reaction"
+              style="width: 240px"
+              maxlength="15"
+            />
+          </div>
+        </div>
+
+        <!-- Eleventh Row -->
+        <div class="form-row">
+          <!-- Equipment Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputEquipment">Equipment</label>
+            <select
+              class="form-control"
+              id="inputEquipment"
+              name="equip"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>
+                Select equipment status
+              </option>
+              <option value="Unavailable">Unavailable</option>
+              <option value="Faulty">Faulty</option>
+              <option value="Needed">Needed</option>
+            </select>
+          </div>
+
+          <!-- Misuse By Field -->
+          <div class="col-md-4 mb-3">
+            <label for="inputMisuseBy">Misuse By</label>
+            <select
+              class="form-control"
+              id="inputMisuseBy"
+              name="misuse_by"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select misuse by</option>
+              <option value="Patient/Caregiver">Patient/Caregiver</option>
+              <option value="Facility Staff">Facility Staff</option>
+              <option value="Hospice Staff">Hospice Staff</option>
+            </select>
+          </div>
+        </div>
+        <!-- Twelfth Row -->
+        <div class="form-row">
+          <!-- Other Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputOther">Other</label>
+            <select
+              class="form-control"
+              id="inputOther"
+              name="other2"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select other issue</option>
+              <option value="Damage or breakage of patient property">
+                Damage or breakage of patient property
+              </option>
+              <option value="Deceased">Deceased</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <!-- Thirteenth Row -->
+        <div class="form-row">
+          <!-- Patient/Caregiver Behavior Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputPatientBehavior">Patient/Caregiver Behavior</label>
+            <select
+              class="form-control"
+              id="inputPatientBehavior"
+              name="patient_behav"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>Select behavior</option>
+              <option value="Self-Inflicted">Self-Inflicted</option>
+              <option value="Refuses Treatment Ordered">
+                Refuses Treatment Ordered
+              </option>
+              <optgroup label="Verbalization of">
+                <option value="Dissatisfaction">Dissatisfaction</option>
+                <option value="Alleges Theft">Alleges Theft</option>
+                <option value="Unplanned Absence of Caregiver">
+                  Unplanned Absence of Caregiver
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <!-- Fourteenth Row -->
+        <div class="form-row">
+          <!-- Nature of Injury Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputNatureOfInjury">Nature of Injury</label>
+            <select
+              class="form-control"
+              id="inputNatureOfInjury"
+              name="injury"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>
+                Select nature of injury
+              </option>
+              <option value="No Apparent Injury">No Apparent Injury</option>
+              <option value="Blindness">Blindness</option>
+              <option value="Sprain/Strain">Sprain/Strain</option>
+              <option value="Death">Death</option>
+              <option value="Hearing Loss">Hearing Loss</option>
+              <option value="Burn">Burn</option>
+              <option value="Neurological Impairment">
+                Neurological Impairment
+              </option>
+              <option value="Pressure Ulcer">Pressure Ulcer</option>
+              <option value="Laceration/Puncture">Laceration/Puncture</option>
+              <option value="Confusion">Confusion</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Textbox for Other Nature of Injury option (initially hidden) -->
+          <div
+            class="col-md-4 mb-3"
+            id="otherNatureContainer"
+            style="display: none"
+          >
+            <label for="inputOtherNature">Specify Other Nature of Injury</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputOtherNature"
+              name="other_injury"
+              placeholder="Enter other nature of injury"
+              maxlength="15"
+              style="width: 240px"
+            />
+          </div>
+        </div>
+
+        <!-- Fifteenth Row -->
+        <div class="form-row">
+          <!-- Follow Up Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-4 mb-3">
+            <label for="inputFollowUp">Follow Up</label>
+            <select
+              class="form-control"
+              id="inputFollowUp"
+              name="followup"
+              style="width: 240px"
+              required
+            >
+              <option value="" disabled selected>
+                Select follow up action
+              </option>
+              <option value="Notified Equipment Vendor">
+                Notified Equipment Vendor
+              </option>
+              <option value="Developed/Revised Policy and Procedure">
+                Developed/Revised Policy and Procedure
+              </option>
+              <option value="Recommended Patient/Caregiver Education">
+                Recommended Patient/Caregiver Education
+              </option>
+              <option value="Other">Other</option>
+              <option value="Made Recommendations to Facility Staff">
+                Made Recommendations to Facility Staff
+              </option>
+              <option value="Notified MD">Notified MD</option>
+              <option value="Notified PCP">Notified PCP</option>
+            </select>
+          </div>
+        </div>
+        <!-- Sixteenth Row -->
+        <div class="form-row">
+          <!-- Additional Actions Recommended Field (Multi-line Input) -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-7 mb-3">
+            <label for="inputAdditionalActions"
+              >Additional Actions Recommended</label
+            >
+            <textarea
+              class="form-control"
+              id="inputAdditionalActions"
+              name="add_actions"
+              rows="2"
+              placeholder="Enter additional actions recommended"
+              maxlength="190"
+              style="width: 600px"
+              required
+            ></textarea>
+          </div>
+        </div>
+        <!-- Seventeenth Row -->
+        <div class="form-row">
+          <!-- Signature Field -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <div class="col-md-3 mb-3">
+            <label for="inputSignature">Signature</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputSignature"
+              name="signature"
+              placeholder="Enter your signature"
+              maxlength="20"
+              style="width: 240px"
+              required
+            />
+          </div>
+
+          <!-- Title Field -->
+          <div class="col-md-1 mb-3"></div>
+          <div class="col-md-3 mb-3">
+            <label for="inputTitle">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputTitle"
+              name="title"
+              placeholder="Enter your title"
+              maxlength="12"
+              style="width: 240px"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-row">
+          <!-- Submit button -->
+          <div class="col-md-2 mb-3">&nbsp;</div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <p>&nbsp;</p>
+
+    <!-- Link to Bootstrap JS and Popper.js (required for Bootstrap JavaScript features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

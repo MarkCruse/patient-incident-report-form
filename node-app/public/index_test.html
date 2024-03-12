@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Incident Report</title>
+    <!-- Link to Bootstrap CSS (optional) -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <head>
+      <style>
+        /* Add your CSS styles here */
+        body {
+          font-family: Arial, sans-serif;
+        }
+        .container {
+          margin-top: 20px;
+        }
+        /* Add more styles as needed */
+      </style>
+    </head>
+
+    <body>
+      <div class="container">
+        <p>Form submitted successfully at ${formattedDateTime}</p>
+        <div class="container mt-4">
+          <div class="row">
+              <h1>Patient Incident Form</h1>
+          </div>
+        </div>
+        <div><p><strong>Patient Name:</strong> ${name} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>MR#:</strong> ${mr_num} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>DOB:</strong> ${dob} </p></div>
+        <div><p><strong>Main Diagnosis:</strong> ${diagnosis} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Start of Care Date:</strong> ${careDate}</p></div>
+        <div><p><strong>Date of Incident:</strong> ${incidentDate} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Time of Incident:</strong> ${incidentTime}</p></div>
+        <div><p><strong>Description of Event:</strong> ${desc}</p></div>
+        <div><p><strong>Pre-Occurrence Condition:</strong> ${preCondition} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Post-Occurrence Condition:</strong> ${postCondition}</p></div>
+        <div><p><strong>Fall Observed/Unobserved:</strong> ${fallObserved} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Fall In Home/Out of Home:</strong> ${inOutHome}</p></div>
+        <div><p><strong>Cause of Fall:</strong> ${causeOfFall} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Specify Other Cause:</strong> ${otherCauseOfFall}</p></div>
+        <div><p><strong>Fall Location:</strong> ${fallLocation} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Other Location:</strong> ${otherFallLocation}</p></div>
+        <div><p><strong>Medication:</strong> ${meds} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Drug Reaction:</strong> ${drugReaction}</p></div>
+        <div><p><strong>Equipment:</strong> ${equipment} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Misuse By:</strong> ${misuse}</p></div>
+        <div><p><strong>Other:</strong> ${otherOther} &nbsp;  &nbsp;  &nbsp;  &nbsp;</p></div>
+        <div><p><strong>Patient/Caregiver Behavior:</strong> ${behavior} &nbsp;  &nbsp;  &nbsp;  &nbsp; </p></div>
+        <div><p><strong>Nature of Injury:</strong> ${injry} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Other Injury:</strong> ${otherInjury}</p></div>
+        <div><p><strong>Follow Up:</strong> ${follow} &nbsp;  &nbsp;  &nbsp;  &nbsp;</p></div>
+        <div><p><strong>Additional Actions Recommended:</strong> ${additionalActions} &nbsp;  &nbsp;  &nbsp;  &nbsp;</p></div>
+        <div><p><strong>Signature:</strong> ${sig} &nbsp;  &nbsp;  &nbsp;  &nbsp; <strong>Title:</strong> ${titl}</p></div>
+              <!-- Include Bootstrap JS and jQuery (optional) if needed -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      </div>
+    </body>
+  </html>
