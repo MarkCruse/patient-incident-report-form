@@ -17,7 +17,7 @@ async function generateReport() {
       field1: "Value2A",
       field2: "Value2B",
       field3: "Value2C",
-    },
+    }
     // Add more data as needed
   ];
 
