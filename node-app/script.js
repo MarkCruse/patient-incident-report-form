@@ -1,9 +1,12 @@
+// This script demonstrates how to authenticate with the Google Sheets API
+// and retrieve data from a spreadsheet using Node.js
+
 const { google } = require("googleapis");
 const sheets = google.sheets("v4");
 
 const auth = new google.auth.GoogleAuth({
   keyFile:
-    "/Users/mark/Documents/qapi-elamj/node-app/credentials/qapi-elamj-de7d7e97aecb.json",
+    "/Users/mark/Documents/patient-incident-report-form/node-app/credentials/qapi-elamj-de7d7e97aecb.json",
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 

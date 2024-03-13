@@ -1,7 +1,10 @@
+// This script demonstrates how to use Puppeteer to automate the creation of reports from 
+// provided data, allowing for the generation of both image and PDF versions of the report.
+
 const puppeteer = require("puppeteer");
 
 async function generateReport() {
-  // Sample data - replace this with your actual data
+  // Sample data
   const reportData = [
     {
       time: "2024-01-01T12:00:00",
