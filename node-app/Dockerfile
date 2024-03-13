@@ -3,7 +3,7 @@ FROM node:14
 
 # Set the working directory in the container
 #WORKDIR /usr/src/app
-WORKDIR /Users/mark/Documents/qapi-elamj/node-app
+WORKDIR /Users/mark/Documents/patient-incident-report-form/node-app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./

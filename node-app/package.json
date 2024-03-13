@@ -6,17 +6,21 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mark Cruse",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "googleapis": "^129.0.0",
     "puppeteer": "^21.6.1"
   },
-  "description": "",
   "devDependencies": {
     "@babel/cli": "^7.23.4",
     "@babel/core": "^7.23.7",
     "@babel/preset-env": "^7.23.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "patient-incident-report-form"
+  },
+  "description": ""
 }
