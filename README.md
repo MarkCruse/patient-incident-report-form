@@ -11,8 +11,8 @@ open Docker Engine app
 
 ## Explanation of commands in docker-build-push-deploy.sh
 1. docker build -t gcr.io/qapi-elamj/node-app:v1 .  
-Purpose: 
-This command builds a Docker image from the Dockerfile located in the current directory (.), and tags it with the name gcr.io/qapi-elamj/node-app:v1.
+Purpose:  
+This command builds a Docker image from the Dockerfile located in the current directory (.), and tags it with the name gcr.io/qapi-elamj/node-app:v1.  
 Explanation:  
 docker build: This command is used to build a Docker image from a Dockerfile.  
 -t gcr.io/qapi-elamj/node-app:v1: The -t flag is used to tag the Docker image with a name and optionally a tag. In this case, gcr.io/qapi-elamj/node-app:v1 is the name and tag for the Docker image.  
